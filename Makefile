@@ -1,0 +1,1 @@
+# This is a placeholder for a Makefile to compile the C program.
