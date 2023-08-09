@@ -1,0 +1,1 @@
+// This is a placeholder for a C program that calculates an integral.
