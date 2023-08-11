@@ -1,1 +1,12 @@
-# This is a placeholder for a Makefile to compile the C program.
+CC=gcc
+CFLAGS=-I.
+
+all: integral
+
+integral: integral.c
+	$(CC) -o integral integral.c $(CFLAGS)
+
+.PHONY: clean
+
+clean:
+	rm -f integral
