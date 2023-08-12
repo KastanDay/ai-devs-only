@@ -1,0 +1,1 @@
+Create a function that takes a 2D tensor and applies the softmax function to it along the second dimension. Use PyTorch.
