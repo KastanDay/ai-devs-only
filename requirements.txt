@@ -1,3 +1,5 @@
 flask
 requests
 flask_sqlalchemy
+flask_limiter
+redis
