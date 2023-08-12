@@ -1,0 +1,1 @@
+Create a function that implements a transformer in PyTorch. The function should initialize the transformer with the proper layers in the proper order.
