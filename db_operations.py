@@ -5,8 +5,11 @@ def create():
     # db.execute(query)
     return 'Record created'
 
-# def read():
-#     pass
+def read():
+    query = "SELECT * FROM table_name"
+    # Execute the query and fetch all records
+    # records = db.execute(query).fetchall()
+    return 'All records fetched'
 
 # def update():
 #     pass
