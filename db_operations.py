@@ -11,8 +11,11 @@ def read():
     # records = db.execute(query).fetchall()
     return 'All records fetched'
 
-# def update():
-#     pass
+def update():
+    query = "UPDATE table_name SET column2 = 'new_value2' WHERE column1 = 'value1'"
+    # Execute the query
+    # db.execute(query)
+    return 'Record updated'
 
 # def delete():
 #     pass
