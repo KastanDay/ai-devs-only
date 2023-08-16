@@ -17,5 +17,8 @@ def update():
     # db.execute(query)
     return 'Record updated'
 
-# def delete():
-#     pass
+def delete():
+    query = "DELETE FROM table_name WHERE column1 = 'value1'"
+    # Execute the query
+    # db.execute(query)
+    return 'Record deleted'
