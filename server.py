@@ -10,6 +10,15 @@ class User(db.Model):
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
 
+@app.route('/users', methods=['POST'])
+def create_user():
+    name = request.json.get('name')
+    email = request.json.get('email')
+    new_user = User(name=name, email=email)
+    db.session.add(new_user)
+    db.session.commit()
+    return {'id': new_user.id}, 201
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
