@@ -36,6 +36,15 @@ def update_user(id):
     db.session.commit()
     return {'name': user.name, 'email': user.email}
 
+@app.route('/users/<int:id>', methods=['DELETE'])
+def delete_user(id):
+    user = User.query.get(id)
+    if user is None:
+        return {'error': 'User not found'}, 404
+    db.session.delete(user)
+    db.session.commit()
+    return {}, 204
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
