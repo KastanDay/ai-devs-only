@@ -26,6 +26,16 @@ def get_user(id):
         return {'error': 'User not found'}, 404
     return {'name': user.name, 'email': user.email}
 
+@app.route('/users/<int:id>', methods=['PUT'])
+def update_user(id):
+    user = User.query.get(id)
+    if user is None:
+        return {'error': 'User not found'}, 404
+    user.name = request.json.get('name', user.name)
+    user.email = request.json.get('email', user.email)
+    db.session.commit()
+    return {'name': user.name, 'email': user.email}
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
