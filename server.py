@@ -19,6 +19,13 @@ def create_user():
     db.session.commit()
     return {'id': new_user.id}, 201
 
+@app.route('/users/<int:id>', methods=['GET'])
+def get_user(id):
+    user = User.query.get(id)
+    if user is None:
+        return {'error': 'User not found'}, 404
+    return {'name': user.name, 'email': user.email}
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
