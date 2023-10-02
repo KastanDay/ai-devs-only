@@ -5,21 +5,14 @@ from controllers import create_item, read_item, update_item, delete_item
 app = Flask(__name__)
 app.register_blueprint(views_router)
 
-@app.route('/items/', methods=['POST'])
-def create_item_route(item):
-    return create_item(item)
+from fastapi.middleware.wsgi import WSGIMiddleware
+from views import router as fastapi_router
 
-@app.route('/items/<int:item_id>', methods=['GET'])
-def read_item_route(item_id):
-    return read_item(item_id)
+app = Flask(__name__)
+app.wsgi_app = WSGIMiddleware(fastapi_router)
 
-@app.route('/items/<int:item_id>', methods=['PUT'])
-def update_item_route(item_id, item):
-    return update_item(item_id, item)
-
-@app.route('/items/<int:item_id>', methods=['DELETE'])
-def delete_item_route(item_id):
-    return delete_item(item_id)
+if __name__ == '__main__':
+    app.run()
 
 if __name__ == '__main__':
     app.run()
